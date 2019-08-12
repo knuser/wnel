@@ -1,3 +1,5 @@
+import pydevd_pycharm
+
 import nel.ntee as ntee
 from nel.vocabulary import Vocabulary
 import torch
@@ -621,6 +623,9 @@ class EDRanker:
                                 cats = []
                                 for doc in data:
                                     cats += [m['raw']['conll_m']['cat'] for m in doc]
+                            if self.args.remote_debug:
+                                pydevd_pycharm.settrace('127.0.0.1', port=12333, stdoutToServer=True, stderrToServer=True)
+
                             if cats is None:
                                 f1 = D.eval(org_dev_datasets[di][1], predictions)
                             else:

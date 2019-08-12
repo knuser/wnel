@@ -136,6 +136,7 @@ parser.add_argument("--dev_ner", type=str,
 # args for debugging
 parser.add_argument("--print_rel", action='store_true')
 parser.add_argument("--print_incorrect", action='store_true')
+parser.add_argument("--remote_debug", action='store_true')
 
 
 args = parser.parse_args()
